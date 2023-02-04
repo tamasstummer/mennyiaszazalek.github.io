@@ -4,7 +4,7 @@
 	<title>The Bonus</title>
 	<style>
 		h1 {
-			font-size: 36px;
+			font-size: 50px;
 			text-align: center;
 			position: absolute;
 			top: 50%;
@@ -14,6 +14,23 @@
 	</style>
 </head>
 <body>
-	<h1>The bonus is 15%</h1>
+	<h1 id="bonus"></h1>
+	<script>
+		function calculateBonus(basePercentage) {
+			bonus = (((0.125 * basePercentage) - 0.875) * 100) - 100
+			if (bonus > 0) {
+				return bonus;
+			}
+			else {
+				return 0;
+			}
+		}
+		// input this values
+		const bonusPercentage = 19;
+		halfYear = "Q2"
+
+		const header = document.getElementById("bonus");
+		header.textContent = `The bonus is ${calculateBonus(bonusPercentage)}% for ${halfYear}`;
+	</script>
 </body>
 </html>
